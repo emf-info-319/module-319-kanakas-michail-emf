@@ -6,7 +6,7 @@ public class ExerciceCondition2 {
         if (valeurATester % 2 == 0) {
             System.out.println("La valeur est pair");
         } else {
-            System.out.println("La valeur est impaire");
+            System.out.println("La valeur est impair");
         }
 
 

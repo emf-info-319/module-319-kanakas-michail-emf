@@ -9,7 +9,7 @@ public class exm {
         System.out.println(var1++);
 
         // var2 is increased to 6
-        // Then, var2 is displayed
+        // Then, var2 is displayed.
         System.out.println(++var2);
     }
 }

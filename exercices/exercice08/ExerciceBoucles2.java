@@ -21,20 +21,8 @@ public class ExerciceBoucles2 {
             z--;
         } while(z>=1); 
         System.out.println("Décollage !!");
-
         
-        System.out.print(z);
-        System.out.println("Je suis un exemple "+z+" voila voila");
-    }       /*Affichera :
-            0
-            Je suis un exemple 0 voila voila
-    
-  eeeerhw4hg4h
-     eee
-  eeerht
- eee
-ddee
-     */
+    }       
 
 }
 

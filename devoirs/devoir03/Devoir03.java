@@ -1,8 +1,8 @@
 import java.util.Scanner;
 
-public class Devoir03 { 
-    public static void main(String[] args) { //j'ai fais l'exercice pour qu'on puisse nous meme entrer une date
-        int anneeChoisi = 2000; //j'ai mis des valeurs par défaut parce que sinon il voulait pas
+public class Devoir03 {
+    public static void main(String[] args) { // j'ai fais l'exercice pour qu'on puisse nous meme entrer une date
+        int anneeChoisi = 2000; // j'ai mis des valeurs par défaut parce que sinon il voulait pas
         int moisChoisi = 1;
         int jourChoisi = 1;
         Scanner annee = new Scanner(System.in);
@@ -56,6 +56,17 @@ public class Devoir03 {
             }
 
         }
+        int jourDeAnnee = 0;
+        int[] tabJoursDesMois = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+        if (anneeChoisi % 4 == 0) {
+            tabJoursDesMois[1] = 29;
+        }
+        for (int i = 0; i != moisChoisi - 1; i++) {
+            jourDeAnnee += tabJoursDesMois[i];
+        }
+        jourDeAnnee += jourChoisi;
+        System.out.println("Le " + jourChoisi + "/" + moisChoisi + "/" + anneeChoisi + " est le jour " + jourDeAnnee
+                + " de l'an " + anneeChoisi);
     }
-        int jourDeAnnee;
+
 }

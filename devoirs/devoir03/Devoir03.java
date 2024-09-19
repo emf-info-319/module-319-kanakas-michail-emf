@@ -22,7 +22,7 @@ public class Devoir03 {
         Scanner mois = new Scanner(System.in);
         System.out.println("Veuillez entrer un mois sous forme de nombre");
         moisChoisi = mois.nextInt();
-        while (moisChoisi > 12 || moisChoisi < 0) {
+        while (moisChoisi > 12 || moisChoisi <= 0) {
             System.out.println("Mois non valide");
             System.out.println("Veuillez entrer un mois valide");
             moisChoisi = mois.nextInt();
@@ -31,12 +31,12 @@ public class Devoir03 {
         Scanner jour = new Scanner(System.in);
         System.out.println("Veuillez entrer un jour sous forme de nombre");
         jourChoisi = jour.nextInt();
-        while (jourChoisi > 31 || jourChoisi < 0) {
+        while (jourChoisi > 31 || jourChoisi <= 0) {
             System.out.println("Jour non valide");
             System.out.println("Veuillez entrer un jour valide");
             jourChoisi = jour.nextInt(); }
         while (jourChoisi == 31) {
-            if (moisChoisi == 1 || 3 || 5 || 7 || 8 || 10 || 12) {
+            if (moisChoisi == 1 ||moisChoisi== 3 ||moisChoisi== 5 ||moisChoisi== 7 ||moisChoisi== 8 ||moisChoisi== 10 || moisChoisi==12) {
                 break;
             } else {
                 System.out.println("Ce mois ne contient pas 31 jours");
@@ -47,7 +47,9 @@ public class Devoir03 {
             if (moisChoisi % 4 == 0) {
                 break;
             } else {
-                
+                System.out.println("Ce mois ne contient pas 31 jours");
+                System.out.println("Veuillez entrer un jour valide");
+                jourChoisi = jour.nextInt();
             }
             
         }

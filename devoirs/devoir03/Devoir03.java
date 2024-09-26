@@ -18,7 +18,6 @@ public class Devoir03 {
                 System.out.println("Veuillez entrer une année plus grande");
                 anneeChoisi = annee.nextInt();
             }
-            annee.close();
         }
         Scanner mois = new Scanner(System.in);
         System.out.println("Veuillez entrer un mois sous forme de nombre");
@@ -28,7 +27,7 @@ public class Devoir03 {
             System.out.println("Veuillez entrer un mois valide");
             moisChoisi = mois.nextInt();
         }
-        mois.close();
+
         Scanner jour = new Scanner(System.in);
         System.out.println("Veuillez entrer un jour sous forme de nombre");
         jourChoisi = jour.nextInt();
@@ -56,13 +55,13 @@ public class Devoir03 {
                 jourChoisi = jour.nextInt();
             }
         }
-        jour.close();
+
         int jourDeAnnee = 0;
         int[] tabJoursDesMois = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
         if (anneeChoisi % 4 == 0) {
             tabJoursDesMois[1] = 29;
         }
-        for (int i = 0; i != moisChoisi - 1; i++) {
+        for (int i = 0; i < moisChoisi - 1; i++) {
             jourDeAnnee += tabJoursDesMois[i];
         }
         jourDeAnnee += jourChoisi;

@@ -2,7 +2,6 @@ package evals;
 
 public class KANAKASE00 {
     public final static int NOMBRE_PTS_VICTOIRE = 3;
-
     public static void main(String[] args) {
         String nomEquipe1 = "Barcelone";
         String nomEquipe2 = "Madrid";

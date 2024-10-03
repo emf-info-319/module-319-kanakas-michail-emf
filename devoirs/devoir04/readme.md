@@ -44,3 +44,8 @@ Le jour [31] est hors limites
 
 ## Restitution du devoir
 Faites un commit/push avant la date limite fixée par votre enseignant.
+package DEVOIR04.readme
+public class readme
+public static void main(String[] args) {
+  System.out.println("coucou")
+}

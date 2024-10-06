@@ -8,7 +8,6 @@ public class devoir02 {
         int reservoirA = 0;
         int reservoirB = 0;
         int remplissage;
-
         remplissage = (int) (Math.random() * (CAPACITE_RESERVOIR_A + CAPACITE_RESERVOIR_B - 0 + 1)) + 0;
 
         System.out.println("Il y a " + remplissage + " litres à remplir.");

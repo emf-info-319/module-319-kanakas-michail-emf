@@ -1,5 +1,5 @@
 import java.util.Scanner;
-
+package devoirs.Devoir03;
 public class Devoir03 {
     public static void main(String[] args) { // j'ai fais l'exercice pour qu'on puisse nous meme entrer une date
         int anneeChoisi = 2000; // j'ai mis des valeurs par défaut parce que sinon il voulait pas

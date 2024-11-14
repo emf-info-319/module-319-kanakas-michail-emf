@@ -50,34 +50,44 @@ public class JeuDeLaVie {
                 int nbreVoisins = 0;
                 int x = casegrand;
                 int y = casepetit;
-                if (x>LARGEUR-1) {//gggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg
-                    
+                int yy = y++;
+                int xx = x++;
+                int _y = y--;
+                int _x = x--;
+                if (x > LARGEUR-1) {//gggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg
+                    xx=0;
                 }
-                if (y>HAUTEUR-1) {
-                    
+                if (y > HAUTEUR-1) {
+                    yy=0;
                 }
-                if (cells[x][y + 1] == true) {
+                if (x < LARGEUR-1) {
+                    _x=LARGEUR;
+                }
+                if (y < HAUTEUR-1) {
+                    _y=HAUTEUR;
+                }
+                if (cells[x][yy] == true) {
                     nbreVoisins++;
                 }
-                if (cells[x][y - 1] == true) {
+                if (cells[x][_y] == true) {
                     nbreVoisins++;
                 }
-                if (cells[x + 1][y] == true) {
+                if (cells[xx][y] == true) {
                     nbreVoisins++;
                 }
-                if (cells[x - 1][y] == true) {
+                if (cells[_x][y] == true) {
                     nbreVoisins++;
                 }
-                if (cells[x + 1][y + 1] == true) {
+                if (cells[xx][yy] == true) {
                     nbreVoisins++;
                 }
-                if (cells[x - 1][y - 1] == true) {
+                if (cells[_x][_y] == true) {
                     nbreVoisins++;
                 }
-                if (cells[x + 1][y - 1] == true) {
+                if (cells[xx][_y] == true) {
                     nbreVoisins++;
                 }
-                if (cells[x - 1][y + 1] == true) {
+                if (cells[_x][yy] == true) {
                     nbreVoisins++;
                 }
                 return nbreVoisins;

@@ -48,10 +48,12 @@ public class JeuDeLaVie {
     //
     public static int nbreDeVoisins(boolean[][] cells, int casegrand, int casepetit) {
                 int nbreVoisins = 0;
-                if (casegrand>LARGEUR-1) {//gggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg
+                int x = casegrand;
+                int y = casepetit;
+                if (x>LARGEUR-1) {//gggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg
                     
                 }
-                if (casegrand>HAUTEUR-1) {
+                if (y>HAUTEUR-1) {
                     
                 }
                 if (cells[casegrand][casepetit + 1] == true) {

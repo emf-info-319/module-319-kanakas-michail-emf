@@ -1,4 +1,4 @@
-package exercices;
+package autre;
 import java.util.Scanner;
 public class IntroMethode {
     public static void main(String[] args) {

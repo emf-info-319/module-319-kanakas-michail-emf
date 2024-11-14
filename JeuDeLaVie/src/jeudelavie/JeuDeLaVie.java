@@ -56,28 +56,28 @@ public class JeuDeLaVie {
                 if (y>HAUTEUR-1) {
                     
                 }
-                if (cells[casegrand][casepetit + 1] == true) {
+                if (cells[x][y + 1] == true) {
                     nbreVoisins++;
                 }
-                if (cells[casegrand][casepetit - 1] == true) {
+                if (cells[x][y - 1] == true) {
                     nbreVoisins++;
                 }
-                if (cells[casegrand + 1][casepetit] == true) {
+                if (cells[x + 1][y] == true) {
                     nbreVoisins++;
                 }
-                if (cells[casegrand - 1][casepetit] == true) {
+                if (cells[x - 1][y] == true) {
                     nbreVoisins++;
                 }
-                if (cells[casegrand + 1][casepetit + 1] == true) {
+                if (cells[x + 1][y + 1] == true) {
                     nbreVoisins++;
                 }
-                if (cells[casegrand - 1][casepetit - 1] == true) {
+                if (cells[x - 1][y - 1] == true) {
                     nbreVoisins++;
                 }
-                if (cells[casegrand + 1][casepetit - 1] == true) {
+                if (cells[x + 1][y - 1] == true) {
                     nbreVoisins++;
                 }
-                if (cells[casegrand - 1][casepetit + 1] == true) {
+                if (cells[x - 1][y + 1] == true) {
                     nbreVoisins++;
                 }
                 return nbreVoisins;

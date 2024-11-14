@@ -54,17 +54,17 @@ public class JeuDeLaVie {
                 int xx = x++;
                 int _y = y--;
                 int _x = x--;
-                if (x > LARGEUR-1) {//gggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg
+                if (x > LARGEUR-2) {//gggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg
                     xx=0;
                 }
-                if (y > HAUTEUR-1) {
+                if (y > HAUTEUR-2) {
                     yy=0;
                 }
-                if (x < LARGEUR-1) {
-                    _x=LARGEUR;
+                if (x-1 < 0) {
+                    _x=LARGEUR-1;
                 }
-                if (y < HAUTEUR-1) {
-                    _y=HAUTEUR;
+                if (y-1 < 0) {
+                    _y=HAUTEUR-1;
                 }
                 if (cells[x][yy] == true) {
                     nbreVoisins++;

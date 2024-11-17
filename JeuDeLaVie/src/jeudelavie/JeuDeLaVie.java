@@ -47,50 +47,72 @@ public class JeuDeLaVie {
     // cellules
     //
     public static int nbreDeVoisins(boolean[][] cells, int casegrand, int casepetit) {
-                int nbreVoisins = 0;
-                int x = casegrand;
-                int y = casepetit;
-                int yy = y++;
-                int xx = x++;
-                int _y = y--;
-                int _x = x--;
-                if (x > LARGEUR-2) {//gggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg
-                    xx=0;
+                int[] tabGrandFinal = new int[8];
+                int[] tabPetitFinal = new int[8];
+                if (casegrand > HAUTEUR-2) {
+                    tabGrandFinal[7] = 0;
+                    tabGrandFinal[6] = 0;
+                    tabGrandFinal[5] = 0;
+                    tabGrandFinal[4] = casegrand;
+                    tabGrandFinal[3] = casegrand;
+                    tabGrandFinal[2] = casegrand - 1;
+                    tabGrandFinal[1] = casegrand - 1;
+                    tabGrandFinal[0] = casegrand - 1;
+                } else if (casegrand < 1) {
+                    tabGrandFinal[7] = casegrand + 1;
+                    tabGrandFinal[6] = casegrand + 1;
+                    tabGrandFinal[5] = casegrand + 1;
+                    tabGrandFinal[4] = casegrand;
+                    tabGrandFinal[3] = casegrand;
+                    tabGrandFinal[2] = HAUTEUR-1;
+                    tabGrandFinal[1] = HAUTEUR-1;
+                    tabGrandFinal[0] = HAUTEUR-1;
+                }   else {
+                    tabGrandFinal[7] = casegrand + 1;
+                    tabGrandFinal[6] = casegrand + 1;
+                    tabGrandFinal[5] = casegrand + 1;
+                    tabGrandFinal[4] = casegrand;
+                    tabGrandFinal[3] = casegrand;
+                    tabGrandFinal[2] = casegrand - 1;
+                    tabGrandFinal[1] = casegrand - 1;
+                    tabGrandFinal[0] = casegrand - 1;
                 }
-                if (y > HAUTEUR-2) {
-                    yy=0;
+
+                if (casepetit > LARGEUR-2) {
+                    tabPetitFinal[7] = 0;
+                    tabPetitFinal[6] = casepetit;
+                    tabPetitFinal[5] = casepetit - 1;
+                    tabPetitFinal[4] = 0;
+                    tabPetitFinal[3] = casepetit - 1;
+                    tabPetitFinal[2] = 0;
+                    tabPetitFinal[1] = casepetit;
+                    tabPetitFinal[0] = casepetit - 1;
+                } else if (casepetit < 1) {
+                    tabPetitFinal[7] = casepetit + 1;
+                    tabPetitFinal[6] = casepetit;
+                    tabPetitFinal[5] = LARGEUR-1;
+                    tabPetitFinal[4] = casepetit + 1;
+                    tabPetitFinal[3] = LARGEUR-1;
+                    tabPetitFinal[2] = casepetit + 1;
+                    tabPetitFinal[1] = casepetit;
+                    tabPetitFinal[0] = LARGEUR-1;
+                }   else {
+                    tabPetitFinal[7] = casepetit + 1;
+                    tabPetitFinal[6] = casepetit;
+                    tabPetitFinal[5] = casepetit - 1;
+                    tabPetitFinal[4] = casepetit + 1;
+                    tabPetitFinal[3] = casepetit - 1;
+                    tabPetitFinal[2] = casepetit + 1;
+                    tabPetitFinal[1] = casepetit;
+                    tabPetitFinal[0] = casepetit - 1;
                 }
-                if (x-1 < 0) {
-                    _x=LARGEUR-1;
+                int nbrVoisins = 0;
+                for (int i = 0; i < tabGrandFinal.length; i++) {
+                    if (cells[tabGrandFinal[i]][tabPetitFinal[i]] == true) {
+                        nbrVoisins++;
+                    }
                 }
-                if (y-1 < 0) {
-                    _y=HAUTEUR-1;
-                }
-                if (cells[x][yy] == true) {
-                    nbreVoisins++;
-                }
-                if (cells[x][_y] == true) {
-                    nbreVoisins++;
-                }
-                if (cells[xx][y] == true) {
-                    nbreVoisins++;
-                }
-                if (cells[_x][y] == true) {
-                    nbreVoisins++;
-                }
-                if (cells[xx][yy] == true) {
-                    nbreVoisins++;
-                }
-                if (cells[_x][_y] == true) {
-                    nbreVoisins++;
-                }
-                if (cells[xx][_y] == true) {
-                    nbreVoisins++;
-                }
-                if (cells[_x][yy] == true) {
-                    nbreVoisins++;
-                }
-                return nbreVoisins;
+                return nbrVoisins;
         // __ _____ _____ ___ ___ ___ ___ ___ ___ ___ ___ ___ _
         // \ \ / / _ \_ _| _ \ __| / __/ _ \| \| __| |_ _/ __|_ _| | |
         // \ V / (_) || | | / _| | (_| (_) | |) | _| | | (__ | | |_|
@@ -101,18 +123,26 @@ public class JeuDeLaVie {
     // La méthode demandée pour calculer le nouvel état du jeu d'après l'ancien
     //
     public static boolean[][] plateauDuJeuDeLaVie_calculerProchainEtat(boolean[][] cells) {
-
+        boolean[][] nouveauEtat = new boolean[HAUTEUR][LARGEUR];
         for (int casegrand = 0; casegrand < cells.length; casegrand++) {
             for (int casepetit = 0; casepetit < cells[casegrand].length; casepetit++) {
                 int nbreVoisins = nbreDeVoisins(cells, casegrand, casepetit);
-                if (nbreVoisins < 2 || nbreVoisins > 3) {
-                    cells[casegrand][casepetit] = false;
+                if (cells[casegrand][casepetit] == false) {
+                    if (nbreVoisins == 3) {
+                        nouveauEtat[casegrand][casepetit] = true;
+                    } else {
+                        nouveauEtat[casegrand][casepetit] = false;
+                    }
                 } else {
-                    cells[casegrand][casepetit] = true;
+                    if (nbreVoisins == 2 || nbreVoisins == 3) {
+                        nouveauEtat[casegrand][casepetit] = true;
+                    } else {
+                        nouveauEtat[casegrand][casepetit] = false;
+                    }
                 }
             }
         }
-        return cells;
+        return nouveauEtat;
         // __ _____ _____ ___ ___ ___ ___ ___ ___ ___ ___ ___ _
         // \ \ / / _ \_ _| _ \ __| / __/ _ \| \| __| |_ _/ __|_ _| | |
         // \ V / (_) || | | / _| | (_| (_) | |) | _| | | (__ | | |_|

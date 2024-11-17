@@ -1,13 +1,23 @@
 package autre.Tests;
 
+import java.util.Scanner;
+
 public class TestsRP {
     public static void main(String[] args) {
-        int[] tab = new int[5];
-        int valeurRemplissage = 2;
-        for (int i = 0; i < tab.length; i++) {
-            tab[i] = valeurRemplissage;
-            /*a chaque itération la case i de tab
-            est remplacé par valeurRemplssage*/
+
+    public static void main(String[] args) {
+        int valrech = 20;
+        int valFinal = -1;
+        for (int i = 0; i < monTableau.length; i++) {
+        if (monTableau[i] == valrech) {
+        valFinal = i;
+        break;
         }
+    }
+
+    }}
+
+    public static int jeSaisPas(int[] exemple) {
+        return exemple[0];
     }
 }

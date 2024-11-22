@@ -9,8 +9,10 @@ public class projet {
         int nombreChoisi = newSc.nextInt();
         System.out.print("Votre nombre est binaire, décimal ou hexa (b ou d ou h) ? ");
         char typeDeNombre = newSc.next().charAt(0);
+        System.out.print("En quel type voulez vous le convertir (b ou d ou h) ? ");
+        char typeTransformation = newSc.next().charAt(0);
 
-        if (typeDeNombre == 'b') {
+        if (typeDeNombre == 'b'&& typeTransformation == 'd') {
             String numeroEnString = String.valueOf(nombreChoisi);
             int[] tabNombre = new int[numeroEnString.length()];
             for (int i = 0; i < numeroEnString.length(); i++) {

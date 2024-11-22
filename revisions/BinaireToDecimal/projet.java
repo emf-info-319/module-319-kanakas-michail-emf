@@ -7,24 +7,24 @@ public class projet {
         System.out.print("Veuillez entrez le nombre que vous voulez convertir : ");
         Scanner newSc = new Scanner(System.in);
         int nombreChoisi = newSc.nextInt();
-        System.out.print("Votre nombre est binaire, décimal ou hexa (b ou d ou h) ? ");
+        System.out.print("Votre nombre est binaire ou décimal (b ou d) ? ");
         char typeDeNombre = newSc.next().charAt(0);
-        System.out.print("En quel type voulez vous le convertir (b ou d ou h) ? ");
-        char typeTransformation = newSc.next().charAt(0);
 
-        if (typeDeNombre == 'b'&& typeTransformation == 'd') {
-            String numeroEnString = String.valueOf(nombreChoisi);
-            int[] tabNombre = new int[numeroEnString.length()];
-            for (int i = 0; i < numeroEnString.length(); i++) {
-                tabNombre[i] = Character.getNumericValue(numeroEnString.charAt(i));
+        if (typeDeNombre == 'b') {
+            String binaireEnString = String.valueOf(nombreChoisi);
+            int[] tabBinaire = new int[binaireEnString.length()];
+            for (int i = 0; i < binaireEnString.length(); i++) {
+                tabBinaire[i] = Character.getNumericValue(binaireEnString.charAt(i));
             }
-            int nbEnDecimal = binaireToDecimal(tabNombre);
+            int nbEnDecimal = binaireToDecimal(tabBinaire);
             System.out.println("Voici votre nombre en décimal : " + nbEnDecimal);
-        } else if (typeDeNombre == "h") {
-            
-        } else {
+
+        } else if (typeDeNombre == 'd') {
             String tabDecimalBinaire = decimalToBinaire(nombreChoisi);
             System.out.println("Voici votre nombre en binaire : "+tabDecimalBinaire);
+
+        } else {
+            System.out.println("Error");
         }
         newSc.close();
     }

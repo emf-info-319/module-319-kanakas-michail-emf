@@ -1,4 +1,4 @@
-package revisions;
+package revisions.E1_form;
 
 public class tournoiMichailKanakas {
     public static final String[] EQUIPE = { "FC Richemont", "FC Central", "FC Schoenberg",

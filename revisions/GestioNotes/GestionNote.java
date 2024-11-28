@@ -1,3 +1,4 @@
+package revisions.GestioNotes;
 import java.util.Scanner;
 
 public class GestionNote {

@@ -1,10 +1,12 @@
 package revisions.E2form;
-import Scanner;
+
+import java.util.Scanner;
 
 public class src {
     public static final int NOMBRE_BATONNETS = 21;
     public static final int MIN = 1;
     public static final int MAX = 3;
+
     public static void main(String[] args) {
         int[] batonnets = new int[NOMBRE_BATONNETS];
         Scanner scanner = new Scanner(System.in);
@@ -22,8 +24,8 @@ public class src {
                 int nbEnleve = demanderNombre(scanner);
                 batonnets = enleverBatonnets(batonnets, nbEnleve);
             } else {
-                int nbEnleveIA = ( int ) ( Math.random() * ( MAX - MIN + 1 ) ) + MIN;
-                System.out.println("L'IA veut enlever "+nbEnleveIA+" batons");
+                int nbEnleveIA = (int) (Math.random() * (MAX - MIN + 1)) + MIN;
+                System.out.println("L'IA veut enlever " + nbEnleveIA + " batons");
                 batonnets = enleverBatonnets(batonnets, nbEnleveIA);
             }
         }
@@ -35,7 +37,7 @@ public class src {
         scanner.close();
     }
 
-    public static void  afficherBatonnets(int[] batonnets) {
+    public static void afficherBatonnets(int[] batonnets) {
         for (int i = 0; i < batonnets.length; i++) {
             if (batonnets[i] == 1) {
                 System.out.print("|");
@@ -43,7 +45,7 @@ public class src {
                 System.out.print("-");
             }
         }
-        System.out.println("\n");
+        System.out.print("\n");
     }
 
     public static int[] enleverBatonnets(int[] batonnets, int nbEnleve) {
@@ -60,7 +62,7 @@ public class src {
 
     public static int demanderNombre(Scanner scanner) {
         int nombre = 0;
-        while ((nombre>=1) && (nombre <= 3)) {
+        while ((nombre < 1) || (nombre > 3)) {
             System.out.print("Entrez un nombre entre 1 et 3 : ");
             nombre = scanner.nextInt();
         }

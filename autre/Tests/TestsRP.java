@@ -3,7 +3,6 @@ package autre.Tests;
 import java.util.Scanner;
 
 public class TestsRP {
-    public static void main(String[] args) {
 
     public static void main(String[] args) {
         int valrech = 20;
@@ -15,7 +14,7 @@ public class TestsRP {
         }
     }
 
-    }}
+    }
 
     public static int jeSaisPas(int[] exemple) {
         return exemple[0];
